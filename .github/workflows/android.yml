@@ -27,11 +27,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
-        working-directory: project
+        working-directory: project/JARVISVoiceAssistant
         run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Jarvis-APK
-          path: project/app/build/outputs/apk/debug/app-debug.apk
+          path: project/JARVISVoiceAssistant/app/build/outputs/apk/debug/app-debug.apk
