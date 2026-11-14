@@ -82,6 +82,13 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+      - name: Check Kotlin error lines
+        run: |
+          echo "=== Lines around 486 ==="
+          sed -n '475,495p' project/JARVISVoiceAssistant/app/src/main/java/com/sanjay/jarvis/ui/JarvisHudScreen.kt
+
+          echo "=== Lines around 566 ==="
+          sed -n '555,575p' project/JARVISVoiceAssistant/app/src/main/java/com/sanjay/jarvis/ui/JarvisHudScreen.kt
 
       - name: Build Debug APK
         working-directory: project/JARVISVoiceAssistant
