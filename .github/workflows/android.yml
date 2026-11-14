@@ -27,7 +27,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
-        working-directory: project/JARVIS-AI-ASSISTANT-3/JARVISVoiceAssistant
+       working-directory: project
         run: gradle assembleDebug
 
       - name: Upload APK
