@@ -14,6 +14,16 @@ jobs:
       - name: Extract Android project
         run: unzip -o "Jarvis.Andriod.Zip.zip.zip" -d project
 
+      - name: Fix Gradle file names
+        run: |
+          cd project/JARVISVoiceAssistant
+          mv .trashed-*-settings.gradle.kts settings.gradle.kts
+          mv .trashed-*-gradle.properties gradle.properties
+          mv .trashed-*-build.gradle.kts build.gradle.kts
+          cd app
+          mv .trashed-*-build.gradle.kts build.gradle.kts
+          mv .trashed-*-proguard-rules.pro proguard-rules.pro
+
       - name: Check extracted files
         run: find project -maxdepth 4 -type f | head -50
 
@@ -27,11 +37,11 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
-        working-directory: project
+        working-directory: project/JARVISVoiceAssistant
         run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Jarvis-APK
-          path: project/app/build/outputs/apk/debug/app-debug.apk
+          path: project/JARVISVoiceAssistant/app/build/outputs/apk/debug/app-debug.apk
