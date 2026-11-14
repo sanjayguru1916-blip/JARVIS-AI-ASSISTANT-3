@@ -28,6 +28,8 @@ jobs:
 
           mkdir -p src/main
           mv src/main/.trashed-*-AndroidManifest.xml src/main/AndroidManifest.xml 2>/dev/null || true
+          find src/main/java -type f -name ".trashed-*-JarvisHudScreen.kt" -exec sh -c 'mv "$1" "$(dirname "$1")/JarvisHudScreen.kt"' _ {} \; 2>/dev/null || true
+
 
       - name: Check extracted files
         run: find project -maxdepth 4 -type f | head -50
