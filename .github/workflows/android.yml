@@ -82,6 +82,7 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+
       - name: Check Kotlin error lines
         run: |
           echo "=== Lines around 486 ==="
@@ -93,6 +94,7 @@ jobs:
       - name: Build Debug APK
         working-directory: project/JARVISVoiceAssistant
         run: gradle assembleDebug
+
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
