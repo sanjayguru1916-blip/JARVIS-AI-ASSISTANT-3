@@ -34,8 +34,8 @@ jobs:
         run: |
           FILE=project/JARVISVoiceAssistant/app/src/main/java/com/sanjay/jarvis/ui/JarvisHudScreen.kt
 
-          sed -i 's|^[^/]*Helmet center scan line|// Helmet center scan line|' "$FILE"
-          sed -i 's|^[^/]*Chest armor center detail|// Chest armor center detail|' "$FILE"
+          sed -i '486c\// Helmet center scan line' "$FILE"
+          sed -i '566c\// Chest armor center detail' "$FILE"
 
       - name: Check extracted files
         run: find project -maxdepth 4 -type f | head -50
